@@ -1,4 +1,4 @@
-# 🛍️ Fagima Product Grid
+# 🛍️ Figma Product Grid
 
 A stylish, responsive product display page with an animated loader, empty-state illustration, sorting feature, and dynamic product loading. Built using **HTML, CSS, and JavaScript** — ideal for eCommerce demos or portfolio projects.
 
