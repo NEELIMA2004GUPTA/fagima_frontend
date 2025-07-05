@@ -1,0 +1,402 @@
+/* 🌐 Global Reset and Font Setup */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+body {
+  background: #fff;
+  color: #333;
+}
+
+/* 🔄 Fullscreen Loader Wrapper */
+#loader-wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: black;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 3px;
+  z-index: 9999; /* Ensures it's on top */
+}
+
+/* 🔄 Loader Container */
+.loading-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 40px;
+}
+
+/* 🔳 Loader Line Progress Background */
+.loading-line {
+  width: 300px;
+  height: 4px;
+  background: rgba(255, 255, 255, 0.2);
+  position: relative;
+  overflow: hidden;
+  border-radius: 4px;
+}
+
+/* 🔳 White Loader Fill (Animated) */
+.loading-fill {
+  height: 100%;
+  width: 100%;
+  background: white;
+  animation: fillProgress 2s ease-out forwards;
+  border-radius: 4px;
+}
+
+/* 📽️ Keyframe: Progress bar fill */
+@keyframes fillProgress {
+  from {
+    width: 0%;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+/* ▦ Rectangle Grid Loader Animation */
+.rectangle-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 10px);
+  column-gap: 6px;
+  row-gap: 15px;
+  justify-content: center;
+}
+
+/* ⬛ Individual rectangles in loader */
+.rect {
+  width: 10px;
+  height: 15px;
+  background: white;
+  opacity: 0;
+  transform: translateY(10px);
+  animation: fadeInUp 0.4s ease forwards;
+}
+
+/* ⏱️ Delay each rectangle for staggered effect */
+.rect:nth-child(1) { animation-delay: 0.3s; }
+.rect:nth-child(2) { animation-delay: 0.5s; }
+.rect:nth-child(3) { animation-delay: 0.7s; }
+.rect:nth-child(4) { animation-delay: 0.9s; }
+.rect:nth-child(5) { animation-delay: 1.1s; }
+.rect:nth-child(6) { animation-delay: 1.3s; }
+
+/* 📽️ Keyframe: Fade and lift up rectangles */
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* 🖼️ Banner/Header Styling */
+.banner {
+  background: url('1.jpg') no-repeat center center;
+  background-size: cover;
+  height: 410px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.banner h1 {
+  color: white;
+  font-size: 3rem;
+  text-shadow: 1px 1px 4px rgba(0,0,0,0.5);
+}
+
+/* 📌 Topbar (Count + Sort) */
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 10px;
+  margin: 20px;
+  border: 0.5px solid gray;
+}
+
+/* ⬇️ Sort Dropdown */
+#sort {
+  padding: 8px 12px;
+  border: 1px solid gray;
+  border-radius: 10px;
+}
+
+/* 🛍️ Product Grid Layout */
+.productgrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 20px;
+  padding: 30px 1px;
+  max-width: 1100px;
+  margin: 0 auto;
+  align-items: stretch;
+}
+
+/* ⚠️ Empty State Styling */
+.emptystate {
+  grid-column: 1 / 1;
+  text-align: center;
+  padding: 40px;
+}
+
+.emptystate img {
+  width: 320px;
+  margin-bottom: 20px;
+}
+
+.emptystate h2 {
+  font-size: 1.8rem;
+  color: #666;
+  margin-bottom: 10px;
+}
+
+.emptystate p {
+  color: #777;
+  margin-bottom: 20px;
+}
+
+/* 🔘 Load Button in Empty State */
+.emptystate button {
+  background: linear-gradient(to right, #007bff, #00c6ff);
+  border: none;
+  padding: 12px 24px;
+  color: white;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+/* 🧱 Product Card Styling */
+.card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background: #fff;
+  border-radius: 10px;
+  padding: 16px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  opacity: 0;
+  transform: translateY(20px);
+  animation: ani 1.0s ease forwards;
+  height: 100%;
+}
+
+.card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.card h3 {
+  margin-top: 10px;
+  font-size: 1.2rem;
+  display: flex;
+  align-items: center;
+}
+
+.card .desc {
+  font-size: 0.9rem;
+  color: #666;
+  margin: 8px 0;
+}
+
+.card .price {
+  font-weight: bold;
+  color: #222;
+}
+
+/* ➕ Add to Cart Button */
+.add-btn {
+  padding: 10px;
+  background-color: #0b1f3a;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 12px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+/* 🌀 Card Appear Animation */
+@keyframes ani {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* 📱 Responsive Styling */
+@media screen and (max-width: 768px) {
+  .banner {
+    height: 200px;
+    padding: 10px;
+    background-position: center;
+    background-size: cover;
+  }
+
+  .banner h1 {
+    font-size: 1.8rem;
+    text-align: center;
+  }
+
+  .topbar {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 10px;
+    margin: 10px 15px;
+    padding: 10px;
+    border: 1px solid #ccc;
+  }
+
+  .topbar p {
+    font-size: 1rem;
+    text-align: center;
+  }
+
+  #sort {
+    width: 100%;
+    font-size: 1rem;
+  }
+
+  .productgrid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+    padding: 10px 15px;
+  }
+
+  .card {
+    padding: 12px;
+    height: auto;
+  }
+
+  .card img {
+    height: 160px;
+  }
+
+  .card h3 {
+    font-size: 1rem;
+    min-height: auto;
+  }
+
+  .card .price {
+    font-size: 1rem;
+  }
+
+  .add-btn {
+    font-size: 0.95rem;
+    padding: 10px;
+  }
+
+  .emptystate img {
+    width: 200px;
+  }
+
+  .emptystate h2 {
+    font-size: 1.4rem;
+  }
+
+  .emptystate p {
+    font-size: 0.95rem;
+  }
+
+  .emptystate button {
+    font-size: 0.95rem;
+    padding: 10px 20px;
+  }
+}
+
+/* 🔘 Pulse Button Styles */
+.pulse-btn {
+  position: relative;
+  padding: 12px 28px;
+  background: linear-gradient(135deg, #007bff, #00c6ff);
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* 🌀 Loading State (Button shrinks into circle) */
+.pulse-btn.loading {
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  padding: 0;
+}
+
+/* 📃 Button text fades out when loading */
+.btn-text {
+  transition: opacity 0.3s ease;
+}
+
+.pulse-btn.loading .btn-text {
+  opacity: 0;
+}
+
+/* ⏺️ Dot Loader - default hidden */
+.dot-loader {
+  display: flex;
+  position: absolute;
+  bottom: 23px;
+  left: 50%;
+  transform: translateX(-50%);
+  gap: 5px;
+}
+
+/* ⏺️ Dot loader only visible during loading */
+.pulse-btn.loading .dot-loader {
+  display: flex;
+}
+
+/* 🔵 Loader Dots */
+.dot-loader span {
+  width: 6px;
+  height: 6px;
+  background: #fff;
+  border-radius: 50%;
+  animation: bounce 0.6s infinite ease-in-out;
+  opacity: 0;
+}
+
+/* 🔁 Show dots while loading */
+.pulse-btn.loading .dot-loader span {
+  opacity: 1;
+}
+
+/* ⏱️ Dot delay for bouncing animation */
+.dot-loader span:nth-child(2) {
+  animation-delay: 0.2s;
+}
+.dot-loader span:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+/* 🏀 Bouncing Animation */
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+}
