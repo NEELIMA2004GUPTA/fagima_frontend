@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Basic Meta Tags -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Fagima</title>
+
+  <!-- External CSS File -->
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+
+<!-- 🔄 Loader Screen: Displays loading animation before main content is shown -->
+<div id="loader-wrapper">
+  <div class="loading-container">
+    <!-- Rectangle animation grid -->
+    <div class="rectangle-grid">
+      <div class="rect"></div>
+      <div class="rect"></div>
+      <div class="rect"></div>
+      <div class="rect"></div>
+      <div class="rect"></div>
+      <div class="rect"></div>
+    </div>
+    <!-- Horizontal loading line animation -->
+    <div class="loading-line">
+      <div class="loading-fill"></div>
+    </div>
+  </div>
+</div>
+
+<!-- 🌐 Main Page Content -->
+<div class="main">
+
+  <!-- 🏷️ Banner/Header Section -->
+  <div class="banner">
+    <h1>All Products</h1>
+  </div>
+
+  <!-- 📦 Main Container for product grid and controls -->
+  <div class="container">
+
+    <!-- 🔝 Topbar: Product count and sort options -->
+    <div class="topbar">
+      <p id="pcount">0 Products</p> <!-- Dynamic product count -->
+      <select id="sort"> <!-- Sorting dropdown -->
+        <option value="">Sort By</option>
+        <option value="low">Price: Low to High</option>
+        <option value="high">Price: High to Low</option>
+      </select>
+    </div>
+
+    <!-- 🔓 Empty State: Shown when no products are loaded -->
+    <div id="emptystate" class="emptystate">
+      <img src="./2.png" alt="Empty Box"> <!-- Illustration -->
+      <h2>Oops... looks like the shelves are empty!</h2>
+      <p>Smash that "Load Products" button to fix this tragic situation.</p>
+
+      <!-- 🟠 Load Button with animated dots -->
+      <button id="loadBtn" class="pulse-btn">
+        <span class="btn-text">Load Products</span>
+        <div class="dot-loader">
+          <span></span><span></span><span></span>
+        </div>
+      </button>
+    </div>
+
+    <!-- 🛍️ Product Cards Grid (Duplicate, may be a mistake) -->
+    <div id="productgrid" class="productgrid"></div>
+    </button> <!-- ⚠️ Extra closing button tag (invalid) -->
+
+    <!-- 🛍️ Product Cards Grid (Correct placement) -->
+    <div id="productgrid" class="productgrid"></div>
+
+  </div>
+</div>
+
+<!-- 📜 JavaScript File -->
+<script src="script.js"></script>
+</body>
+</html>
+
